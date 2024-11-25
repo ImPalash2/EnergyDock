@@ -1,0 +1,70 @@
+.container {
+  padding: 0;
+  border: 1px solid grey;
+  margin-top: 5vh;
+  height: 80vh;
+  width: 40%;
+  border-radius: 1rem;
+}
+.noti {
+  height: 90%;
+  width: 100%;
+  overflow: auto;
+  padding-left: 1.5rem;
+}
+.notiCard {
+  margin-right: 1.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+.notiCard:hover {
+  opacity: 0.9;
+}
+.bc {
+  /* position: absolute; */
+  /* right: 1.5rem;
+  top: -0.7rem; */
+  font-size: 0.8rem;
+  cursor: pointer;
+  /* border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0; */
+}
+.mybtn {
+  width: 100%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 1rem;
+}
+.mybtn:first-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 0;
+  margin-right: 0.5rem;
+}
+/* .noti::-webkit-scrollbar {
+  width: 1rem;
+  border-radius: 10px;
+}
+.noti::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-top-right-radius: 10px;
+}
+
+.noti::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+} */
+.container h4 {
+  text-decoration: underline 0.5px grey;
+  background-color: rgb(255, 255, 255);
+  padding-top: 0;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}

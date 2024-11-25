@@ -1,0 +1,12 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 2vh 4vw;
+  margin-left: 28vw;
+  margin-top: 8vh;
+  width: 44vw;
+  border: 1px solid grey;
+  border-radius: 1rem;
+}

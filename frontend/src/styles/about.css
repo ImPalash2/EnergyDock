@@ -1,0 +1,21 @@
+.AboutSection{
+    background: linear-gradient(to top, #6da5c0, #0f969c);
+    padding: 2rem;
+    height: max-content;
+    border-radius: 1rem;
+    margin: 1rem 4rem;
+    color: aliceblue;
+    transition: all .5s ease;
+}
+
+.AboutSection > h1{
+    text-decoration: underline;
+}
+
+.AboutSection > p{
+    font-size: larger;
+}
+
+.AboutSection:hover{
+    transform: scale(1.05);
+}

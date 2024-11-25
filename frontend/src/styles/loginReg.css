@@ -1,0 +1,39 @@
+.form-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30vw;
+  border: 1px solid grey;
+  padding: 20px;
+  border-radius: 1rem;
+}
+h3 {
+  margin-bottom: 3vh;
+}
+.items {
+  width: 90%;
+}
+.items1 {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+.btn {
+  margin-top: 2vh;
+}
+.items1 p {
+  opacity: 0.6;
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+}

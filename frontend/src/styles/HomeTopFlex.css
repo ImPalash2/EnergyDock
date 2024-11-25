@@ -1,0 +1,50 @@
+.inside {
+  padding: 0rem 7rem;
+}
+
+.homeTopFlex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 25rem;
+  color: #2d2d2d;
+}
+
+.flexcontents {
+  background: linear-gradient(to left, #ececec, #ffffff);
+  height: 24rem;
+  width: 20rem;
+  padding: 1rem;
+  transition: all .5s ease;
+}
+
+.headingInsideFlextop{
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.flexcontents:hover{
+  transform: scale(1.05);
+}
+
+.HomeFlexImage1 {
+  height: 7rem;
+  background-image: url(/src/components/images/homeflex1new.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.HomeFlexImage2 {
+  height: 7rem;
+  background-image: url(/src/components/images/homeflex2new.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.HomeFlexImage3 {
+  height: 7rem;
+  background-image: url(/src/components/images/homeflex3new.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}

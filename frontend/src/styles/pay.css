@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* text-align: center; */
+}
+.paycontainer {
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  background-color: rgba(99, 164, 220, 0.7);
+  padding: 2.5rem;
+  height: 100%;
+  width: 30rem;
+  margin: auto;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.paycontainer > h1 {
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  margin-bottom: 1.5rem;
+  margin-top: -1.5rem;
+}
+
+.paycontainer > hr {
+  margin-bottom: 0.5rem;
+}
+
+.paycontainer > input {
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  margin-bottom: 0.7rem;
+}
+.paycontainer > button {
+  border: none;
+  padding: 0.5rem;
+  background: linear-gradient(
+    to right,
+    rgba(19, 85, 185, 0.705),
+    rgba(95, 114, 236, 0.864),
+    rgba(19, 85, 185, 0.705)
+  );
+  color: aliceblue;
+  align-items: center;
+  border-radius: 0.5rem;
+  /* transition: all .5s ease; */
+  /* text-align: center; */
+}
+.paycontainer > button:hover {
+  background: linear-gradient(
+    to left,
+    rgba(95, 114, 236, 0.864),
+    rgba(19, 85, 185, 0.705),
+    rgba(95, 114, 236, 0.864)
+  );
+}
+
+.paycontainer > label {
+  display: block;
+  text-align: left;
+  font-size: large;
+  margin-bottom: 0.2rem;
+  margin-left: 3rem;
+}

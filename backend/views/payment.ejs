@@ -1,0 +1,152 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        /* text-align: center; */
+    }
+    body{
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .paycontainer{
+        border-radius: .5rem;
+        border: 1px solid black;
+        background-color: rgba(99, 164, 220, 0.7);
+        padding: 2.5rem;
+        text-align: center;
+    }
+
+    .paycontainer > h1{
+        margin-bottom: 1.5rem;
+    }
+
+    .paycontainer > hr{
+        margin-bottom: .5rem;
+    }
+
+    .paycontainer > input{
+        width: 20rem;
+        padding: .5rem;
+        border-radius: .5rem;
+        border: none;
+        margin-bottom: .7rem;
+        
+    }
+    .paycontainer > button{
+        border: none;
+        padding: .5rem;
+        background: linear-gradient(to right, rgba(19, 85, 185, 0.705), rgba(95, 114, 236, 0.864), rgba(19, 85, 185, 0.705));
+        color: aliceblue;
+        align-items: center;
+        border-radius: .5rem;
+        /* transition: all .5s ease; */
+        /* text-align: center; */
+    }
+    .paycontainer > button:hover{
+        background: linear-gradient(to left, rgba(95, 114, 236, 0.864), rgba(19, 85, 185, 0.705), rgba(95, 114, 236, 0.864));
+    }
+
+    .paycontainer > label{
+        display: block;
+        text-align: left;
+        font-size: large;
+        margin-bottom: .2rem;
+        margin-left: .2rem;
+    }
+
+</style>
+<!-- <link rel="stylesheet" href="pay.css"> -->
+<div class="paycontainer">
+    <h1>Pay effortlessly</h1>
+    <label for="">Amount: </label>
+    <input type="text" id="order-amt"/>
+    <br/>
+    <!-- Get order id from razorpay -->
+    <button id="order-button1">Create Order</button>
+    <br/>
+    <script>
+        document.getElementById("order-button1").onclick = function(e) {
+            var url = "/api/payment/order"
+            var params = {
+                amount: document.getElementById("order-amt").value,
+                currency: "INR",
+                receipt: "EnergyDock",
+                payment_capture: '1'
+            };
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function(res) {
+                if (xmlHttp.readyState === 4) {
+                    res = JSON.parse(xmlHttp.responseText);
+                    document.getElementById("rzp-text").value = res.sub.id
+                }
+            }
+            xmlHttp.open("POST", url, true);
+            xmlHttp.setRequestHeader("Content-type", "application/json");
+            xmlHttp.send(JSON.stringify(params));
+        }
+    </script>
+    <br/>
+    <hr/>
+    <label for="">Order id: </label>
+    <input type="text" name="" id="rzp-text"/>
+    <br/>
+    <button id="rzp-button1">Checkout</button>
+    <div id="paymentDetails"></div>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.getElementById("rzp-button1").onclick = function(e) {
+            var options = {
+                "key": "<%= key %>",
+                "currency": "INR",
+                "name": "WTH Coding",
+                "description": "WtH Coding Transaction",
+                "order_id": document.getElementById("rzp-text").value,
+                "handler": function(response) {
+                    document.getElementById('order-pay-id').value = response.razorpay_payment_id;
+                    document.getElementById('order-id').value = response.razorpay_order_id;
+                    document.getElementById('order-sig').value = response.razorpay_signature;
+                },
+                "theme": {
+                    "color": "#0EB9F2"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+    <br/>
+    <hr>
+    <label for="">Order id :</label>
+    <input type="text" id="order-id"/>
+    <br/>
+    <label for="">Payment id :</label>
+    <input type="text" id="order-pay-id"/>
+    <br/>
+    <label for="">Order signature :</label>
+    <input type="text" id="order-sig"/>
+    <br/>
+    <button id="verify-button1">Verify </button>
+    <script>
+        document.getElementById('verify-button1').onclick = function(e) {
+            var url = '/api/payment/verify';
+            var params = {
+                razorpay_order_id: document.getElementById('order-id').value,
+                razorpay_payment_id: document.getElementById('order-pay-id').value,
+                razorpay_signature: document.getElementById('order-sig').value
+            };
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function(res) {
+                if (xmlHttp.readyState === 4) {
+                    alert(xmlHttp.responseText);
+                }
+            }
+            xmlHttp.open("POST", url, true); // false for synchronous request
+            xmlHttp.setRequestHeader("Content-type", "application/json");
+            xmlHttp.send(JSON.stringify(params));
+        }
+    </script>
+</div>
